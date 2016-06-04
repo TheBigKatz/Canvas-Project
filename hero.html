@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hero</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+    var heroX = 100;
+    var heroY = 100;
+    var speed = 5;
+    window.addEventListener('keydown', function(e) {
+      var key = e.keyCode;
+      if (key === 37) { // left
+        heroX -= speed;
+      }
+      if (key === 39) { // right
+        heroX += speed;
+      }
+      if (key === 38) { // up
+        heroY -= speed;
+      }
+      if (key === 40) { // down
+        heroY += speed;
+      }
+      if (heroX > 400) {
+        heroX = 0;
+      }
+      if (heroY > 400) {
+        heroY = 0;
+      }
+      if (heroX < 0) {
+        heroX = 400;
+      }
+      if (heroY < 0) {
+        heroY = 400;
+      }
+    });
+
+    var monsterX = 100;
+    var monsterY = 25;
+    var monsterSpeed = 5;
+      while (monsterX < 1000) {
+        monsterX + monsterX + monsterSpeed;
+      }
+      if (monsterX > 400) {
+        monsterX = 0;
+      }
+      if (monsterY > 400) {
+        monsterY = 0;
+      }
+      if (monsterX < 0) {
+        monsterX = 400;
+      }
+      if (monsterY < 0) {
+        monsterY = 400;
+      }
+
+
+
+
+
+
+
+
+
+
+        var hero = new Image();
+        hero.src = 'hero.png';
+        var herobackground = new Image();
+        herobackground.src = 'gamebg.png';
+
+        var monster = new Image();
+        monster.src = 'monster.png';
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        function main() {
+            ctx.fillRect(0, 0, 400, 400);
+            ctx.beginPath();
+            ctx.drawImage(herobackground, 0, 0, 400, 400);
+            ctx.drawImage(monster, monsterX, monsterY, 25, 25);
+            ctx.drawImage(hero, heroX, heroY, 25, 25);
+            ctx.fill();
+
+          requestAnimationFrame(main);
+      }
+        main();
+        </script>
+      </body>
+    </html>
